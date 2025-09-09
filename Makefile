@@ -36,7 +36,7 @@ LIBFT = $(addprefix $(LIBFT_DIR), $(LIBFT_NAME))
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJS) $(HEADERS) $(TESTER_HEADER)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -L $(LIBFT_DIR) -lft -o $(NAME)
 
 $(OBJ_DIR)%.o:$(MAIN_SRC_DIR)%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I $(HEADER_DIR) -c  $< -o $@
