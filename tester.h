@@ -6,6 +6,7 @@
 # define RESET "\033[0m"
 
 # include "../include/execute.h"
+# include "../libft/libft.h"
 
 void  print_test(int *n, char *cmd);
 void  print_catagory(char *cmd);
