@@ -128,11 +128,12 @@ static void test_6(int *n, char **envp)
 {
 	t_ast_node *node_1 = create_ast_node("/bin/cat", (char *[]){"cat", "-e", NULL}, envp);
     
-  create_redirect_node(node_1, REDIR_INPUT, "Makefile", O_RDONLY, 0644);
+  create_redir_node(node_1, REDIR_INPUT, "Makefile", NULL, O_RDONLY);
 
+  t_group *group = create_group(node_1);
   print_test(n, "< Makefile cat -e");
   execution(group, node_1);
   printf("\n");
   clear_ast(group -> ast_root);
-  free(group);_group *group = create_group(node_1);
+  free(group);
 }

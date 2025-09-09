@@ -16,6 +16,7 @@ LIBFT_NAME = libft.a
 
 MAIN_SRC = execute.c \
 	execute_pipeline.c \
+	execute_redirect.c \
 	execute_utils.c \
 	command_utils.c
 MAIN_OBJECTS = $(MAIN_SRC:.c=.o)

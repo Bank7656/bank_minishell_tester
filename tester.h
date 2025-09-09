@@ -13,5 +13,6 @@ void  print_catagory(char *cmd);
 void  test(char **envp);
 t_ast_node	*create_ast_node(char *cmd, char **args, char **envp);
 t_ast_node	*create_pipeline_node(t_ast_node *left, t_ast_node *right);
+t_ast_node *create_redir_node(t_ast_node *node, t_redir_type type, char *name, char *delim, int mode);
 
 #endif

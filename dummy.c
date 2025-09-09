@@ -45,16 +45,17 @@ t_ast_node	*create_ast_node(char *cmd, char **args, char **envp)
 t_ast_node *create_redir_node(t_ast_node *node, t_redir_type type, char *name, char *delim, int mode)
 {
   t_list  *lst;
-  t_redir redir;
+  t_redir *redir;
 
-  redir.type = type;
-  redir.filename = name;
-  if (redir.type == HEREDOC)
-    redir.delimeter = delim;
+  redir = (t_redir *)malloc(sizeof(t_redir));
+  redir -> type = type;
+  redir -> filename = name;
+  if (redir -> type == HEREDOC)
+    redir -> delimeter = delim;
   else
-    redir.delimeter = NULL;
-  redir.mode = mode;
-  lst = ft_lstnew(&redir);
+    redir -> delimeter = NULL;
+  redir -> mode = mode;
+  lst = ft_lstnew(redir);
 
   if (type == REDIR_INPUT || type == HEREDOC)
     ft_lstadd_back(&(node -> data.exec.redir_input), lst);
