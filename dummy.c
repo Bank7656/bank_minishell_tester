@@ -49,7 +49,7 @@ t_ast_node *create_redir_node(t_ast_node *node, t_redir_type type, char *name, c
 
   redir = (t_redir *)malloc(sizeof(t_redir));
   redir -> type = type;
-  redir -> filename = name;
+  redir -> filename = ft_strdup(name);
   if (redir -> type == HEREDOC)
     redir -> delimeter = delim;
   else

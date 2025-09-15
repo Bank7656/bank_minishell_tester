@@ -7,6 +7,8 @@ static void test_3(int *n, char **envp);
 static void test_4(int *n, char **envp);
 static void test_5(int *n, char **envp);
 static void test_6(int *n, char **envp);
+static void test_7(int *n, char **envp);
+static void test_8(int *n, char **envp);
 
 void  test(char **envp)
 {
@@ -23,7 +25,9 @@ void  test(char **envp)
 
   //print_catagory("Check Exit code");
   //test_5(&n, envp);
-  test_6(&n, envp);
+  //test_6(&n, envp);
+  //test_7(&n, envp);
+  test_8(&n, envp);
 }
 
 static void test_0(int *n, char **envp)
@@ -132,6 +136,34 @@ static void test_6(int *n, char **envp)
 
   t_group *group = create_group(node_1);
   print_test(n, "< Makefile cat -e");
+  execution(group, node_1);
+  printf("\n");
+  clear_ast(group -> ast_root);
+  free(group);
+}
+
+static void test_7(int *n, char **envp)
+{
+	t_ast_node *node_1 = create_ast_node("/bin/cat", (char *[]){"cat", "-e", "Makefile", NULL}, envp);
+    
+  create_redir_node(node_1, REDIR_OUTPUT, "./tester/test7.txt", NULL, O_WRONLY | O_CREAT | O_TRUNC);
+
+  t_group *group = create_group(node_1);
+  print_test(n, "cat -e Makefile > ./tester/test7.txt");
+  execution(group, node_1);
+  printf("\n");
+  clear_ast(group -> ast_root);
+  free(group);
+}
+
+static void test_8(int *n, char **envp)
+{
+	t_ast_node *node_1 = create_ast_node("/bin/cat", (char *[]){"cat", "-e", NULL}, envp);
+    
+  create_redir_node(node_1, HEREDOC, NULL, "EOF", O_RDONLY);
+
+  t_group *group = create_group(node_1);
+  print_test(n, "<< EOF cat -e");
   execution(group, node_1);
   printf("\n");
   clear_ast(group -> ast_root);
