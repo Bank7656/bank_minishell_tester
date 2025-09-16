@@ -37,8 +37,7 @@ t_ast_node	*create_ast_node(char *cmd, char **args, char **envp)
 	node -> data.exec.commands = strdup(cmd);
 	node -> data.exec.arguments = get_dummy_args(args);
 	node -> data.exec.envp = envp;
-  node -> data.exec.redir_input = NULL;
-  node -> data.exec.redir_output = NULL;
+  node -> data.exec.redir = NULL;
 	return (node);
 }
 
@@ -54,13 +53,8 @@ t_ast_node *create_redir_node(t_ast_node *node, t_redir_type type, char *name, c
     redir -> delimeter = delim;
   else
     redir -> delimeter = NULL;
-  redir -> mode = mode;
   lst = ft_lstnew(redir);
-
-  if (type == REDIR_INPUT || type == HEREDOC)
-    ft_lstadd_back(&(node -> data.exec.redir_input), lst);
-  else if (type == REDIR_OUTPUT || type == APPEND)
-    ft_lstadd_back(&(node -> data.exec.redir_output), lst);
+  ft_lstadd_back(&(node -> data.exec.redir), lst);
   return (node);
 }
 
