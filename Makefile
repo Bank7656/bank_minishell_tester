@@ -23,6 +23,13 @@ MAIN_SRC = execute.c \
 MAIN_OBJECTS = $(MAIN_SRC:.c=.o)
 
 TESTER_SRC = tester_main.c \
+						 tester_utils.c \
+						 test_simple_cmd.c \
+						 test_pipeline.c \
+						 test_zombie.c \
+						 test_exit_code.c \
+						 test_random.c \
+						 test_redir_input.c \
 						 dummy.c \
 						 test.c
 TESTER_OBJECTS = $(TESTER_SRC:.c=.o)

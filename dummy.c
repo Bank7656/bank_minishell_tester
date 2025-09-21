@@ -50,13 +50,14 @@ t_ast_node *create_redir_node(t_ast_node *node, t_redir_type type, char *name, c
   redir -> type = type;
   redir -> filename = ft_strdup(name);
   if (redir -> type == HEREDOC)
-    redir -> delimeter = delim;
+    redir -> delimeter = ft_strdup(delim);
   else
     redir -> delimeter = NULL;
   lst = ft_lstnew(redir);
   ft_lstadd_back(&(node -> data.exec.redir), lst);
   return (node);
 }
+
 
 static char **get_dummy_args(char **args)
 {
