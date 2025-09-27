@@ -6,9 +6,10 @@ void  test(char **envp)
 
   //test_simple_cmd(&n, envp);
   //test_pipeline(&n, envp);
-  test_zombie(&n, envp); 
+  //test_zombie(&n, envp); 
   //test_exit_code(&n, envp);
   //test_redir_input(&n, envp);
+  test_redir_output(&n, envp);
   //test_8(&n, envp);
   //test_9(&n, envp);
   test_random(&n, envp);

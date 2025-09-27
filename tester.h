@@ -5,6 +5,8 @@
 # define INFILE_2 "data/infile2.txt"
 # define INFILE_3 "data/infile3.txt"
 # define INFILE_4 "data/infile4.txt"
+# define OUTFILE_1 "data/outfile1.txt"
+# define OUTFILE_2 "data/outfile2.txt"
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
 # define RESET "\033[0m"
@@ -27,6 +29,7 @@ void  test_pipeline(int *n, char **envp);
 void  test_zombie(int *n, char **evnp);
 void  test_exit_code(int *n, char **envp);
 void  test_redir_input(int *n, char **envp);
+void  test_redir_output(int *n, char **envp);
 void  test_random(int *n, char **envp);
 void  run_test(t_group *group, t_ast_node *root);
 
