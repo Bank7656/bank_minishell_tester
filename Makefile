@@ -19,6 +19,7 @@ MAIN_SRC = execute.c \
 	execute_redirect.c \
 	execute_heredoc.c \
 	execute_utils.c \
+	signal_handler.c \
 	command_utils.c
 MAIN_OBJECTS = $(MAIN_SRC:.c=.o)
 

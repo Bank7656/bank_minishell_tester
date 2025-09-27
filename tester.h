@@ -23,6 +23,9 @@ t_ast_node	*create_ast_node(char *cmd, char **args, char **envp);
 t_ast_node	*create_pipeline_node(t_ast_node *left, t_ast_node *right);
 t_ast_node *create_redir_node(t_ast_node *node, t_redir_type type, char *name, char *delim, int mode);
 
+void  test(char **envp);
+t_ast_node	*create_dummy_ast(char **envp);
+t_group *create_group(t_ast_node *node);
 
 void  test_simple_cmd(int *n, char **envp);
 void  test_pipeline(int *n, char **envp);

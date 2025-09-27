@@ -12,17 +12,15 @@
 
 #include "tester.h"
 
+volatile sig_atomic_t should_exit = 0;
+
 int	main(int argc, char **argv, char **envp)
 {
+  
+
   (void)argc;
   (void)argv;
   test(envp);
-	//t_ast_node *root_node = create_dummy_ast(envp);
-
-  //t_group *group = create_group(root_node);
-	//execution(group, root_node);
-
-  //clear_and_exit(group, "NONE");
 
 	return (0);
 }
