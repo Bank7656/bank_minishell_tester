@@ -16,7 +16,6 @@ volatile sig_atomic_t should_exit = 0;
 
 int	main(int argc, char **argv, char **envp)
 {
-  
 
   (void)argc;
   (void)argv;

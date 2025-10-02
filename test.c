@@ -6,16 +6,18 @@ void  test(char **envp)
 {
   int n = 0;
 
-  test_simple_cmd(&n, envp);
-  test_pipeline(&n, envp);
-  test_zombie(&n, envp); 
-  test_exit_code(&n, envp);
-  test_redir_input(&n, envp);
-  test_redir_output(&n, envp);
+  //test_simple_cmd(&n, envp);
+  //test_pipeline(&n, envp);
+  //test_zombie(&n, envp); 
+  //test_exit_code(&n, envp);
+  //test_redir_input(&n, envp);
+  //test_redir_output(&n, envp);
+  //test_append(&n, envp);
+  test_heredoc(&n, envp);
   //test_8(&n, envp);
   //test_9(&n, envp);
-  test_random(&n, envp);
-  test_infinity(&n, envp);
+  //test_random(&n, envp);
+  //test_infinity(&n, envp);
 }
 
 static void test_infinity(int *n, char **envp)

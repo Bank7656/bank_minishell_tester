@@ -32,6 +32,8 @@ TESTER_SRC = tester_main.c \
 						 test_random.c \
 						 test_redir_input.c \
 						 test_redir_output.c \
+						 test_heredoc.c \
+						 test_append.c \
 						 dummy.c \
 						 test.c
 TESTER_OBJECTS = $(TESTER_SRC:.c=.o)
